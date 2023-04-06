@@ -1,16 +1,18 @@
 {
-  "name": "api",
+  "name": "@webflow-dev/api",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "yarn run move-files && astro build",
+    "move-files": "mkdir -p public/js && cp -r ../js/dist/* public/js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/vercel": "^3.2.2",
+    "@webflow-dev/js": "*",
     "astro": "^2.2.0"
   }
 }
