@@ -1,6 +1,5 @@
 {
 	"installCommand": "yarn",
 	"buildCommand": "yarn build",
-	"outputDirectory": "packages/api/.vercel",
-	"framework": "astro"
+	"outputDirectory": "packages/api/.vercel"
 }
