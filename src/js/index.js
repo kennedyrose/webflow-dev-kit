@@ -1,4 +1,4 @@
-// import get from 'lodash/get'
+import hijackForm from "./hijack-form"
 
 function isDev(){
 	try{
@@ -9,8 +9,15 @@ function isDev(){
 	catch(err){}
 	return false
 }
-// console.log(`get`, get)
-console.log(`isDev()`, isDev())
+
+
+
+hijackForm({
+	form: '#wf-form-Contact',
+	onSubmit: async (data) => {
+		console.log(`data`, data)
+	},
+})
 
 
 // let apiRoute = import.meta.env.VITE_API
