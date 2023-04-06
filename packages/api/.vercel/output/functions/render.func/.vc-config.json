@@ -1,1 +1,0 @@
-{"runtime":"nodejs19.x","handler":"packages/api/dist/entry.mjs","launcherType":"Nodejs"}

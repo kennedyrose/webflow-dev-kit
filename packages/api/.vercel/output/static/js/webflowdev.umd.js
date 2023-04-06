@@ -1,1 +1,0 @@
-(function(e){typeof define=="function"&&define.amd?define(e):e()})(function(){"use strict";let e="http://localhost:8080";console.log("apiRoute",e),e=e.replace(/\/$/,"");async function t(){const n=await(await fetch(`${e}/hello`)).json();console.log(n)}t().catch(o=>console.error(o))});
