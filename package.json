@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "lerna run dev --parallel",
-    "build": "lerna run build --parallel --ignore sandbox",
+    "build": "npm run build:js && npm run move-files && npm run build:api",
+    "build:api": "cd packages/api && npm run build",
+    "build:js": "cd packages/js && npm run build",
+    "move-files": "mkdir -p packages/api/public/js && cp -r packages/js/dist/* packages/api/public/js",
     "start": "cd packages/generator && npm run start",
     "stop": "sudo killall -9 node",
     "version": "lerna version",

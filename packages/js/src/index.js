@@ -1,4 +1,5 @@
 let apiRoute = import.meta.env.VITE_API
+console.log(`apiRoute`, apiRoute)
 apiRoute = apiRoute.replace(/\/$/, '')
 
 async function fetchData(){
