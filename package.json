@@ -1,0 +1,22 @@
+{
+  "name": "@kennedyrose/webflow-dev",
+  "version": "1.0.0",
+  "author": "Kennedy Rose <kennedyianrose@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build --parallel --ignore sandbox",
+    "start": "cd packages/generator && npm run start",
+    "stop": "sudo killall -9 node",
+    "version": "lerna version",
+    "test": "echo 'no test'"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "del-cli": "^4.0.0",
+    "dotenv-cli": "^4.0.0",
+    "lerna": "^4.0.0"
+  }
+}

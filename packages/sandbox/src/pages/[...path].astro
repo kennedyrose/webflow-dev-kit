@@ -1,0 +1,37 @@
+---
+import cheerio from 'cheerio'
+
+let site = `https://sl4.webflow.io`
+
+// Get full path to proxy
+if(site.endsWith(`/`)) site = site.slice(0, -1)
+let { path } = Astro.params
+if(!path) path = ``
+const proxyPath = `${site}/${path}`
+
+// Get HTML from Webflow
+const res = await fetch(proxyPath)
+const html = await res.text()
+
+export async function getStaticPaths() {
+  return [
+	 { params: { path: `index` } },
+  ];
+}
+
+// Split up HTMl and attributes
+const $ = cheerio.load(html)
+const bodyHtml = $(`body`).html()
+const bodyAttrs = $(`body`).attr()
+const headHtml = $(`head`).html()
+const headAttrs = $(`head`).attr()
+---
+
+<html lang="en">
+	<head {...headAttrs} set:html={headHtml}></head>
+	
+	<body {...bodyAttrs} set:html={bodyHtml}>
+		
+		<script src='../script'></script>
+	</body>
+</html>
