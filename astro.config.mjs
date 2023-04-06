@@ -8,15 +8,8 @@ export default defineConfig({
   adapter: vercel(),
   vite: {
     build: {
-      rollupOptions: {
-        // Put all JS in single file
-        output: {
-          manualChunks: () => 'main.js',
-
-          // Disable chunking
-          chunkFileNames: () => 'main.js',
-        },
-      },
+      // Never inline assets to force a JS file to be created
+      assetsInlineLimit: 1,
     },
   },
 });
