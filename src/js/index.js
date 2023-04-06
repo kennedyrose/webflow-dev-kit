@@ -9,6 +9,7 @@ function isDev(){
 	catch(err){}
 	return false
 }
+console.log(isDev())
 
 
 // let apiRoute = import.meta.env.VITE_API
