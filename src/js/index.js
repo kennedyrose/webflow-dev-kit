@@ -1,4 +1,4 @@
-
+import get from 'lodash/get'
 
 function isDev(){
 	try{
@@ -9,7 +9,8 @@ function isDev(){
 	catch(err){}
 	return false
 }
-console.log(isDev())
+console.log(`get`, get)
+console.log(`isDev()`, isDev())
 
 
 // let apiRoute = import.meta.env.VITE_API
