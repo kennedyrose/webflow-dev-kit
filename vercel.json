@@ -1,8 +1,5 @@
 {
 	"installCommand": "yarn",
 	"buildCommand": "yarn build",
-	"outputDirectory": "packages/api/.vercel",
-	"functions": {
-	  "runtime": "nodejs18.x"
-	}
+	"outputDirectory": "packages/api/.vercel"
 }
