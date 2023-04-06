@@ -25,3 +25,6 @@ _optimize
 # Temporary
 temp
 temp-*
+.netlify
+.vercel
+.vscode
