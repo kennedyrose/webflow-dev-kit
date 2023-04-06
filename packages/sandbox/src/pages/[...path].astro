@@ -1,30 +1,32 @@
 ---
 import cheerio from 'cheerio'
 
-let site = `https://sl4.webflow.io`
+export let bodyHtml = ``
+export let bodyAttrs = {}
+export let headHtml = ``
+export let headAttrs = {}
 
-// Get full path to proxy
-if(site.endsWith(`/`)) site = site.slice(0, -1)
-let { path } = Astro.params
-if(!path) path = ``
-const proxyPath = `${site}/${path}`
+// Proxy Webflow site in development
+if(import.meta.env.MODE !== `production`) {
+	let site = `https://sl4.webflow.io`
 
-// Get HTML from Webflow
-const res = await fetch(proxyPath)
-const html = await res.text()
+	// Get full path to proxy
+	if(site.endsWith(`/`)) site = site.slice(0, -1)
+	let { path } = Astro.params
+	if(!path) path = ``
+	const proxyPath = `${site}/${path}`
 
-export async function getStaticPaths() {
-  return [
-	 { params: { path: `index` } },
-  ];
+	// Get HTML from Webflow
+	const res = await fetch(proxyPath)
+	const html = await res.text()
+
+	// Split up HTMl and attributes
+	const $ = cheerio.load(html)
+	bodyHtml = $(`body`).html()
+	bodyAttrs = $(`body`).attr()
+	headHtml = $(`head`).html()
+	headAttrs = $(`head`).attr()
 }
-
-// Split up HTMl and attributes
-const $ = cheerio.load(html)
-const bodyHtml = $(`body`).html()
-const bodyAttrs = $(`body`).attr()
-const headHtml = $(`head`).html()
-const headAttrs = $(`head`).attr()
 ---
 
 <html lang="en">
@@ -32,6 +34,6 @@ const headAttrs = $(`head`).attr()
 	
 	<body {...bodyAttrs} set:html={bodyHtml}>
 		
-		<script src='../../../js/dist/webflowdev.umd.js'></script>
+		<script src='../js/index.js'></script>
 	</body>
 </html>

@@ -6,12 +6,14 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build:js": "rollup src/js/index.js --format iife --file public/index.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.2.0",
+    "@astrojs/vercel": "^3.2.2",
     "astro": "^2.2.0",
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "lodash": "^4.17.21"
   }
 }

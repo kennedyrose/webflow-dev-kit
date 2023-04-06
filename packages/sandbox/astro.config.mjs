@@ -1,11 +1,20 @@
-import { defineConfig } from 'astro/config'
-import netlify from '@astrojs/netlify/functions'
+import { defineConfig } from 'astro/config';
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-	output: `server`,
-	adapter: netlify(),
-	server: {
-		port: 3000,
-	},
-})
+  output: `server`,
+  adapter: vercel(),
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: false,
+          inlineDynamicImports: false,
+          entryFileNames: 'app.js',
+        },
+      },
+    },
+  },
+});
