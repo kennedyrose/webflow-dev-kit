@@ -1,0 +1,39 @@
+---
+import cheerio from 'cheerio'
+
+export let bodyHtml = ``
+export let bodyAttrs = {}
+export let headHtml = ``
+export let headAttrs = {}
+
+// Proxy Webflow site in development
+if(import.meta.env.MODE !== `production`) {
+	let site = `https://sl4.webflow.io`
+
+	// Get full path to proxy
+	if(site.endsWith(`/`)) site = site.slice(0, -1)
+	let { path } = Astro.params
+	if(!path) path = ``
+	const proxyPath = `${site}/${path}`
+
+	// Get HTML from Webflow
+	const res = await fetch(proxyPath)
+	const html = await res.text()
+
+	// Split up HTMl and attributes
+	const $ = cheerio.load(html)
+	bodyHtml = $(`body`).html()
+	bodyAttrs = $(`body`).attr()
+	headHtml = $(`head`).html()
+	headAttrs = $(`head`).attr()
+}
+---
+
+<html lang="en">
+	<head {...headAttrs} set:html={headHtml}></head>
+	
+	<body {...bodyAttrs} set:html={bodyHtml}>
+		
+		<script src='../js/index.js'></script>
+	</body>
+</html>

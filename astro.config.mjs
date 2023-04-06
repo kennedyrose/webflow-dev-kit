@@ -6,15 +6,15 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   output: `server`,
   adapter: vercel(),
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: false,
-          inlineDynamicImports: false,
-          entryFileNames: 'app.js',
-        },
-      },
-    },
-  },
+  // vite: {
+  //   build: {
+  //     rollupOptions: {
+  //       output: {
+  //         manualChunks: false,
+  //         inlineDynamicImports: false,
+  //         entryFileNames: '[name].js',
+  //       },
+  //     },
+  //   },
+  // },
 });
