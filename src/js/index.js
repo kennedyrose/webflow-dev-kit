@@ -1,4 +1,4 @@
-import WebflowForm from "./webflow-form"
+import WebflowForm from '@kennedyrose/webflow-form-controller'
 
 const form = new WebflowForm(`#wf-form-Contact`, async () => {
 	form.disable().showWait()
@@ -9,5 +9,5 @@ const form = new WebflowForm(`#wf-form-Contact`, async () => {
 
 	
 
-	form.enable().hideWait()
+	form.showSuccess().hideWait().hideForm().scrollTo()
 })

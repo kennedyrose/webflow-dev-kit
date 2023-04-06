@@ -477,6 +477,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@kennedyrose/webflow-form-controller@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@kennedyrose/webflow-form-controller/-/webflow-form-controller-1.1.0.tgz#8f3d8bf3f042a284199d4ed7bf375e0fc7dc9e42"
+  integrity sha512-GJvRagzXLFnS57J4QphYhTnng9ucOa0kt+EXYQCoOVu29iCM3IkMhNFwrBZhbnMWUJqBwhzylq0aVmaLkmmd5A==
+
 "@ljharb/has-package-exports-patterns@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@ljharb/has-package-exports-patterns/-/has-package-exports-patterns-0.0.2.tgz#c1718939b65efa1f45f53686c2fcfa992b9fb68f"

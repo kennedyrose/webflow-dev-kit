@@ -1,6 +1,7 @@
 ---
 import cheerio from 'cheerio'
 
+export let htmlAttrs = {}
 export let bodyHtml = ``
 export let bodyAttrs = {}
 export let headHtml = ``
@@ -22,6 +23,7 @@ if(import.meta.env.MODE !== `production`) {
 
 	// Split up HTMl and attributes
 	const $ = cheerio.load(html)
+	htmlAttrs = $(`html`).attr()
 	bodyHtml = $(`body`).html()
 	bodyAttrs = $(`body`).attr()
 	headHtml = $(`head`).html()
@@ -29,7 +31,7 @@ if(import.meta.env.MODE !== `production`) {
 }
 ---
 
-<html lang="en">
+<html {...htmlAttrs}>
 	<head {...headAttrs} set:html={headHtml}></head>
 	
 	<body {...bodyAttrs} set:html={bodyHtml}>

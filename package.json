@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^3.2.2",
+    "@kennedyrose/webflow-form-controller": "^1.1.0",
     "astro": "^2.2.0",
     "cheerio": "^1.0.0-rc.12",
     "lodash": "^4.17.21"
