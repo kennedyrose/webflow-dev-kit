@@ -6,15 +6,17 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   output: `server`,
   adapter: vercel(),
-  // vite: {
-  //   build: {
-  //     rollupOptions: {
-  //       output: {
-  //         manualChunks: false,
-  //         inlineDynamicImports: false,
-  //         entryFileNames: '[name].js',
-  //       },
-  //     },
-  //   },
-  // },
+  vite: {
+    build: {
+      rollupOptions: {
+        // Put all JS in single file
+        output: {
+          manualChunks: () => 'main.js',
+
+          // Disable chunking
+          chunkFileNames: () => 'main.js',
+        },
+      },
+    },
+  },
 });
