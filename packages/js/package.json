@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite build --watch",
+    "dev": "export VITE_API=\"${VERCEL_URL:-${URL:-http://localhost:8080}}\"; vite build --watch",
     "build": "vite build",
     "preview": "vite preview"
   },
