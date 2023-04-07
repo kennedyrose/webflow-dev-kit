@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "build:js": "rollup src/js/index.js --format iife --file public/index.js",
+    "build": "astro build && npm run copy-js",
+    "copy-js": "node src/copy-js.js",
     "preview": "astro preview",
     "astro": "astro"
   },

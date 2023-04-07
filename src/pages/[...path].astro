@@ -29,6 +29,9 @@ if(import.meta.env.MODE !== `production`) {
 	headHtml = $(`head`).html()
 	headAttrs = $(`head`).attr()
 }
+else{
+	Astro.response.status = 404
+}
 ---
 
 <html {...htmlAttrs}>
