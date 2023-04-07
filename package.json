@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && npm run copy-js",
+    "dev": "export PUBLIC_API_ENDPOINT=http://localhost:3000 && astro dev",
+    "build": "export PUBLIC_API_ENDPOINT=\"${VERCEL_URL:-${URL:-http://localhost:3000}}\" && astro build && npm run copy-js",
     "copy-js": "node src/copy-js.js",
     "preview": "astro preview",
     "astro": "astro"

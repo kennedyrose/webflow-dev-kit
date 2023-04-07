@@ -6,6 +6,9 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   output: `server`,
   adapter: vercel(),
+  server: {
+    port: 3000,
+  },
   vite: {
     build: {
       // Never inline assets to force a JS file to be created
