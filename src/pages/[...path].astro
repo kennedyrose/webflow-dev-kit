@@ -1,5 +1,8 @@
 ---
 import cheerio from 'cheerio'
+import webflowConfig from '../../webflow.config'
+
+console.log(`webflowConfig`, webflowConfig)
 
 export let htmlAttrs = {}
 export let bodyHtml = ``
@@ -9,7 +12,7 @@ export let headAttrs = {}
 
 // Proxy Webflow site in development
 if(import.meta.env.MODE !== `production`) {
-	let site = `https://sl4.webflow.io`
+	let site = webflowConfig.webflowUrl
 
 	// Get full path to proxy
 	if(site.endsWith(`/`)) site = site.slice(0, -1)
