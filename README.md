@@ -27,6 +27,16 @@ The `webflow.config.js` file contains configuration for both the local developme
 
 By default, Webflow Dev Kit is set up to deploy to Vercel. However, you could also deploy to Netlify or any other service that supports Astro projects. Just make sure to [change Astro's adapter](https://astro.build/integrations?search=&categories%5B%5D=adapters) to match your deployment target.
 
+## Integrating With Your Webflow Site
+
+To add your JS file to your Webflow site, add a script tag to your site with the `src` attribute set to the URL of your JS file, and a `data-webflow-prod` data attribute. For example:
+
+```html
+<script src="https://YOUR-SITE-URL.vercel.app/script.js" data-webflow-prod></script>
+```
+
+The `data-webflow-prod` attribute ensures that the script tag is replaced with the development version of your script when you are running your site in the local development environment.
+
 ## Further Reading
 - [Astro Documentation](https://docs.astro.build/)
 - [Vercel Documentation](https://vercel.com/docs)

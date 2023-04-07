@@ -21,9 +21,12 @@ if(import.meta.env.MODE !== `production`) {
 	// Get HTML from Webflow
 	const res = await fetch(proxyPath)
 	const html = await res.text()
+	const $ = cheerio.load(html)
+
+	// Remove scripts for development
+	$(`script[data-webflow-prod]`).remove()
 
 	// Split up HTMl and attributes
-	const $ = cheerio.load(html)
 	htmlAttrs = $(`html`).attr()
 	bodyHtml = $(`body`).html()
 	bodyAttrs = $(`body`).attr()
