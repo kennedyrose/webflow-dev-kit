@@ -1,7 +1,12 @@
 import WebflowForm from '@kennedyrose/webflow-form-controller'
 
-const endpoint = import.meta.env.PUBLIC_API_ENDPOINT
-console.log(`endpoint`, endpoint)
+let endpoint = import.meta.env.PUBLIC_API_ENDPOINT
+if(endpoint.indexOf(`://`) === -1){
+	endpoint = `https://${endpoint}`
+}
+if(endpoint.endsWith(`/`)){
+	endpoint = endpoint.slice(0, -1)
+}
 
 const form = new WebflowForm(`#wf-form-Contact`, async () => {
 	form.disable().showWait()
