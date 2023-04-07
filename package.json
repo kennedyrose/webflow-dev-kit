@@ -4,15 +4,15 @@
   "version": "0.0.1",
   "scripts": {
     "start": "astro dev",
-    "dev": "export PUBLIC_API_ENDPOINT=http://localhost:3000 && astro dev",
-    "build": "export PUBLIC_API_ENDPOINT=\"${VERCEL_URL:+https://}${VERCEL_URL:-${URL:-'http://localhost:3000'}}\" && astro build && npm run copy-js",
+    "dev": "astro dev",
+    "build": "astro build && npm run copy-js",
     "copy-js": "node src/copy-js.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/vercel": "^3.2.2",
-    "@kennedyrose/webflow-form-controller": "^1.1.0",
+    "@kennedyrose/webflow-form-controller": "^1.1.1",
     "astro": "^2.2.0",
     "cheerio": "^1.0.0-rc.12",
     "lodash": "^4.17.21"
