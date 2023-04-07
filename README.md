@@ -13,3 +13,20 @@ Webflow Dev Kit also gives you a local development environment that proxies your
 
 Your API and JS can be deployed to Netlify, Vercel, or anywhere else that supports Astro projects and embedded into your Webflow site.
 
+## Development
+
+To get started, clone this repo and run `npm install` to install the dependencies.
+
+Then run `npm run dev` to start the local development server. This will proxy your Webflow site and serve your API and JS locally.
+
+## Configuration
+
+The `webflow.config.js` file contains configuration for both the local development server and the production server. Make sure to set your Webflow URL as well as the URL you will be deploying the app to.
+
+## Deployment
+
+By default, Webflow Dev Kit is set up to deploy to Vercel. However, you could also deploy to Netlify or any other service that supports Astro projects. Just make sure to [change Astro's adapter](https://astro.build/integrations?search=&categories%5B%5D=adapters) to match your deployment target.
+
+## Further Reading
+- [Astro Documentation](https://docs.astro.build/)
+- [Vercel Documentation](https://vercel.com/docs)
